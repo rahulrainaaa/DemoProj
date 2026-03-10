@@ -1,0 +1,43 @@
+type Query {
+    books: [Book]
+    bookById(id: ID!): Book
+}
+
+type Mutation {
+    createBook(input: BookInput): Book
+    addReview(input: ReviewInput): Review
+    likeReview(reviewId: ID!): Review
+    dislikeReview(reviewId: ID!): Review
+}
+
+type Book {
+    id: ID
+    name: String
+    details: String
+    author: String
+    price: Float
+    publishedDate: String
+    reviews: [Review]
+}
+
+type Review {
+    id: ID
+    rating: Int
+    review: String
+    likes: Int
+    dislikes: Int
+}
+
+input BookInput {
+    name: String
+    details: String
+    author: String
+    price: Float
+    publishedDate: String
+}
+
+input ReviewInput {
+    bookId: ID
+    rating: Int
+    review: String
+}

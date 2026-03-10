@@ -1,5 +1,9 @@
-package com.demo.book;
+package com.demo.book.utility;
 
+import com.demo.book.entity.Book;
+import com.demo.book.dto.BookDTO;
+import com.demo.book.entity.Review;
+import com.demo.book.dto.ReviewDTO;
 import org.springframework.stereotype.Component;
 
 import java.util.stream.Collectors;

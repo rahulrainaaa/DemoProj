@@ -1,5 +1,9 @@
-package com.demo.book;
+package com.demo.book.resolver;
 
+import com.demo.book.dto.BookDTO;
+import com.demo.book.entity.Book;
+import com.demo.book.request.BookInput;
+import com.demo.book.service.BookService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.graphql.data.method.annotation.Argument;
@@ -23,7 +27,7 @@ public class BookMutationResolver {
                 .author(input.getAuthor())
                 .price(input.getPrice())
                 .publishedDate(LocalDate.parse(input.getPublishedDate()))
-                .reviews(input.getReviews())
+                // .reviews(input.getReviews())
                 .build();
 
         return service.save(book);

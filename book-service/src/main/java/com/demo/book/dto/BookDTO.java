@@ -1,6 +1,7 @@
-package com.demo.book;
+package com.demo.book.dto;
 
 import lombok.Data;
+import org.springframework.data.annotation.Version;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -16,4 +17,7 @@ public class BookDTO {
     private LocalDate publishedDate;
 
     private List<ReviewDTO> reviews;
+
+    @Version
+    private long version;
 }

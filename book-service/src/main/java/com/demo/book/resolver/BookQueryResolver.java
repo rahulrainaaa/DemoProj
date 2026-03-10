@@ -1,5 +1,7 @@
-package com.demo.book;
+package com.demo.book.resolver;
 
+import com.demo.book.dto.BookDTO;
+import com.demo.book.service.BookService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.graphql.data.method.annotation.Argument;
 import org.springframework.graphql.data.method.annotation.QueryMapping;

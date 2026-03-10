@@ -1,4 +1,4 @@
-package com.demo.book;
+package com.demo.book.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -28,4 +28,7 @@ public class Review {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "book_id")
     private Book book;
+
+    @Version
+    private long version;
 }

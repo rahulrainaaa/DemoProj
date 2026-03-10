@@ -1,5 +1,10 @@
-package com.demo.book;
+package com.demo.book.service;
 
+import com.demo.book.entity.Book;
+import com.demo.book.entity.Review;
+import com.demo.book.repository.BookRepository;
+import com.demo.book.repository.ReviewRepository;
+import com.demo.book.request.ReviewInput;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -26,5 +31,23 @@ public class ReviewService {
                 .build();
 
         return reviewRepository.save(review);
+    }
+
+    //@Transactional
+    public boolean likeReview(String reviewId) {
+        int rowsUpdated = reviewRepository.incrementLikes(reviewId, 1);
+        if (rowsUpdated == 0) {
+            throw new RuntimeException("Review not found");
+        }
+        return true;
+    }
+
+    //@Transactional
+    public boolean dislikeReview(String reviewId) {
+        int rowsUpdated = reviewRepository.incrementDislikes(reviewId, 1);
+        if (rowsUpdated == 0) {
+            throw new RuntimeException("Review not found");
+        }
+        return true;
     }
 }
